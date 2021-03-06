@@ -4,7 +4,7 @@ from main.models import Task, Todo
 
 def task_incomplete_list(request, pk):
     todo = Todo.objects.get(id=pk)
-    tasks = Task.objects.filter(todo=todo, mark=False)
+    tasks = Task.objects.filter(todo=todo, mark=True)
     context = {'tasks': tasks,
                'todo': todo,
                'number': pk
@@ -14,7 +14,7 @@ def task_incomplete_list(request, pk):
 
 def task_complete_list(request, pk):
     todo = Todo.objects.get(id=pk)
-    tasks = Task.objects.filter(todo=todo, mark=True)
+    tasks = Task.objects.filter(todo=todo, mark=False)
     context = {'tasks': tasks,
                'todo': todo,
                'number': pk

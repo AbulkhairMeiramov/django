@@ -19,17 +19,15 @@
       <tbody>
       {% for t in tasks %}
         <tr>
-            {% for value in t.values %}
                 <td>{{ t.name }}</td>
                 <td>{{ t.created }}</td>
                 <td>{{ t.due_on }}</td>
                 <td>{{ t.owner }}</td>
-                {% if value != False %}
-                <td>{{ value }}</td>
+            {% if t.mark != False %}
+                <td><button type="button" class="btn btn-info">Done</button></td>
             {% else %}
-            <td><button type="button" class="btn btn-info">Done</button></td>
+            <td><button type="button" class="btn btn-info">Not Done</button></td>
             {% endif %}
-        {% endfor %}
         </tr>
       {% endfor %}
       </tbody>
