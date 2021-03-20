@@ -4,7 +4,6 @@ from auth_.serializers import MainUserSerializer
 
 
 class TaskSerializer(serializers.ModelSerializer):
-    # common task serializer
     owner = MainUserSerializer(read_only=True)
 
     class Meta:
@@ -19,7 +18,6 @@ class TaskSerializer(serializers.ModelSerializer):
 
 
 class TodoSerializer(serializers.ModelSerializer):
-    # serializer for retrieve
     tasks = serializers.SerializerMethodField('get_tasks')
 
     class Meta:
@@ -35,7 +33,6 @@ class TodoSerializer(serializers.ModelSerializer):
 
 
 class TodoListSerializer(serializers.ModelSerializer):
-    # serializer for list
     tasks = TaskSerializer(many=True)
 
     class Meta:
